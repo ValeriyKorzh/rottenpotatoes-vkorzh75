@@ -13,7 +13,11 @@ class MoviesController < ApplicationController
 sort = params[:sort] || session[:sort]
 if sort == 'title'
   ordering = {:order => :title}
+@release_date_header = ''
 @title_header = 'hilite'
+elsif sort == 'release_date'
+@release_date_header = 'hilite'
+@title_header = ''
 end
     @movies = Movie.order(params[:sort])
   end
